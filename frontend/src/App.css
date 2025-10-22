@@ -1,0 +1,149 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh; /* Adjusted for less header space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* Bigger font */
+  color: white;
+  padding: 20px 0;
+}
+
+.App-header h1 {
+  font-size: 2.5em; /* Even bigger for the main title */
+  margin-bottom: 15px;
+}
+
+.App-header input[type="file"] {
+  font-size: 1.2em; /* Bigger font for file input */
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.App-header button {
+  padding: 12px 25px; /* Bigger buttons */
+  font-size: 1.2em; /* Bigger font for buttons */
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: #61dafb;
+  color: #282c34;
+  transition: background-color 0.3s ease;
+}
+
+.App-header button:hover:not(:disabled) {
+  background-color: #21a1f1;
+}
+
+.App-header button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pdf-viewer-container {
+  position: relative;
+  width: fit-content;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: crosshair;
+}
+
+.selection-box {
+  position: absolute;
+  border: 2px dashed blue;
+  background-color: rgba(0, 0, 255, 0.1);
+  pointer-events: none; /* Allows interaction with elements beneath */
+}
+
+.selection-box.saved-selection {
+  pointer-events: all; /* Allow interaction with saved selections for delete button and dragging */
+  cursor: grab; /* Indicate draggable */
+}
+
+.selection-box.saved-selection:active {
+  cursor: grabbing; /* Indicate actively dragging */
+}
+
+.delete-selection-button {
+  position: absolute;
+  top: -15px; /* Adjusted for bigger button */
+  right: -15px; /* Adjusted for bigger button */
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px; /* Bigger button */
+  height: 30px; /* Bigger button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px; /* Bigger font */
+  cursor: pointer;
+  pointer-events: all; /* Ensure button is clickable */
+  z-index: 10; /* Ensure button is above selection box */
+}
+
+.react-pdf__Page canvas {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* Added to explicitly maintain aspect ratio */
+}
+
+.page-navigation {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Bigger gap */
+  font-size: 1.2em; /* Bigger font */
+}
+
+.page-navigation button {
+  padding: 10px 20px; /* Bigger buttons */
+  font-size: 1.1em; /* Bigger font */
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: #61dafb;
+  color: #282c34;
+  transition: background-color 0.3s ease;
+}
+
+.page-navigation button:hover:not(:disabled) {
+  background-color: #21a1f1;
+}
+
+.page-navigation button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
