@@ -55,7 +55,13 @@ Follow these steps to set up and run the application:
     ```
     This will create a `build` folder inside the `frontend` directory.
 
-4.  **Copy PDF.js Worker (Important!):** The `react-pdf` library requires a worker script to be available at the root of the static files.
+4.  Move the built frontend assets to the `static` directory that the FastAPI server will serve:
+    ```bash
+    rm -rf static # Remove the old static directory if it exists
+    mv frontend/build static
+    ```
+    
+5.  **Copy PDF.js Worker (Important!):** The `react-pdf` library requires a worker script to be available at the root of the static files.
     Navigate back to the `pdf_viewer_app` directory:
     ```bash
     cd ..
@@ -66,11 +72,6 @@ Follow these steps to set up and run the application:
     ```
     *Note: This is a manual step. For a more automated deployment, consider configuring your build process to copy this file automatically.*
 
-5.  Move the built frontend assets to the `static` directory that the FastAPI server will serve:
-    ```bash
-    rm -rf static # Remove the old static directory if it exists
-    mv frontend/build static
-    ```
 
 ### 3. Running the Server
 
